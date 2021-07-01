@@ -134,7 +134,7 @@ You can btw check my (french) blog were I will explain how I solved the challeng
      <tr>
 			<td  align="center" rowspan="4">7 - ret2csu</td>
 			<td align="center">x86_64</td>
-			<td align="center">:x:</td>
+			<td align="center">:white_check_mark:</td>
 		</tr>
 		<tr>
 			<td align="center">ARM</td>
@@ -147,4 +147,10 @@ You can btw check my (french) blog were I will explain how I solved the challeng
 	</tbody>
 </table>
 
-I'm currently trying to solve them !
+## TODO
+
+- Modify encrypted flags
+	- 2-callme
+	- 7-ret2csu
+- Write solving articles on [https://www.soeasy.re](https://www.soeasy.re)
+- ARM et MIPS versions :grin:
