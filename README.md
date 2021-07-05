@@ -149,8 +149,5 @@ You can btw check my (french) blog were I will explain how I solved the challeng
 
 ## TODO
 
-- Modify encrypted flags
-	- 2-callme
-	- 7-ret2csu
 - Write solving articles on [https://www.soeasy.re](https://www.soeasy.re)
 - ARM et MIPS versions :grin:
