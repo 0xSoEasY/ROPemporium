@@ -1,6 +1,6 @@
 # ROPemporium
 
-All binaries from ROPemporium website [https://ropemporium.com](https://ropemporium.com/), categorized by architecture, with custom flags and solving scripts. I actually solved all the challenges only in x86 and x64 but soon:tm: I'll touch to ARM and MIPS versions :grin:
+All binaries from ROPemporium website [https://ropemporium.com](https://ropemporium.com/), categorized by architecture, with custom flags and solving scripts. I actually solved all the challenges only in x86 and x64 but I'll maybe:tm: touch to ARM and MIPS versions soon :grin:
 
 You can btw check my (french) blog were I will explain how I solved the challenges in the differents architectures : [https://www.soeasy.re](https://www.soeasy.re) :smile:
 
