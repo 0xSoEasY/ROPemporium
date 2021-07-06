@@ -154,4 +154,4 @@ You can btw check my (french) blog were I will explain how I solved the challeng
 
 ## Contribution
 
-Feel free to contribute and propose your solving scripts for somes MIPS and ARM versions of challenges :)
+Feel free to contribute and propose your solving scripts for somes MIPS and ARM versions of challenges :blush:
