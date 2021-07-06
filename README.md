@@ -40,7 +40,7 @@ You can btw check my (french) blog were I will explain how I solved the challeng
 		</tr>
 		<tr>
 			<td align="center">ARM</td>
-			<td align="center">:x:</td>
+			<td align="center">:large_orange_diamond:</td>
 		</tr>
 		<tr>
 			<td align="center">MIPS</td>
