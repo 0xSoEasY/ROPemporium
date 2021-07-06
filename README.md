@@ -151,3 +151,7 @@ You can btw check my (french) blog were I will explain how I solved the challeng
 
 - Write solving articles on [https://www.soeasy.re](https://www.soeasy.re)
 - ARM et MIPS versions :grin:
+
+## Contribution
+
+Feel free to contribute and propose your solving scripts for somes MIPS and ARM versions of challenges :)
