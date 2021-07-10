@@ -44,7 +44,7 @@ You can btw check my (french) blog were I will explain how I solved the challeng
 		</tr>
 		<tr>
 			<td align="center">MIPS</td>
-			<td align="center">:x:</td>
+			<td align="center">:white_check_mark:</td>
 		</tr>
     <tr>
 			<td  align="center" rowspan="4">2 - callme</td>
