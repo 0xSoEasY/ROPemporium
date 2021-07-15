@@ -49,7 +49,7 @@ You can btw check my (french) blog were I will explain how I solved the challeng
     <tr>
 			<td  align="center" rowspan="4">2 - callme</td>
 			<td align="center">x86</td>
-			<td align="center">:white_check_mark: | not tested</td>
+			<td align="center">:white_check_mark:</td>
 		</tr>
 		<tr>
 			<td align="center">x86_64</td>
@@ -57,7 +57,7 @@ You can btw check my (french) blog were I will explain how I solved the challeng
 		</tr>
 		<tr>
 			<td align="center">ARM</td>
-			<td align="center">:large_orange_diamond:</td>
+			<td align="center">:large_orange_diamond: --> not tested</td>
 		</tr>
 		<tr>
 			<td align="center">MIPS</td>
