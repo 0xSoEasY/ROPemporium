@@ -57,7 +57,7 @@ You can btw check my (french) blog were I will explain how I solved the challeng
 		</tr>
 		<tr>
 			<td align="center">ARM</td>
-			<td align="center">:large_orange_diamond: --> not tested</td>
+			<td align="center">:white_check_mark:</td>
 		</tr>
 		<tr>
 			<td align="center">MIPS</td>
