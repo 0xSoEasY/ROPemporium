@@ -1,6 +1,8 @@
 # ROPemporium
 
-All binaries from ROPemporium website [https://ropemporium.com](https://ropemporium.com/), categorized by architecture, with custom flags and solving scripts. I actually solved all the challenges only in x86 and x64 but I'll maybe:tm: touch to ARMv5 and MIPS versions soon :grin:
+All binaries from ROPemporium website [https://ropemporium.com](https://ropemporium.com/), categorized by architecture, with custom flags and solving scripts.
+
+I actually solved all the challenges only in x86 and x64 but I'm currently working on ARMv5 and MIPS versions :grin:
 
 You can btw check my (french) blog were I will explain how I solved the challenges in the differents architectures : [https://www.soeasy.re](https://www.soeasy.re) :smile:
 
@@ -150,7 +152,7 @@ You can btw check my (french) blog were I will explain how I solved the challeng
 ## TODO
 
 - Write solving articles on [https://www.soeasy.re](https://www.soeasy.re)
-- ARMv5 et MIPS versions :grin:
+- Finish ARMv5 et MIPS versions :grin:
 
 ## Contribution
 
