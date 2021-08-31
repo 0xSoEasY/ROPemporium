@@ -76,7 +76,7 @@ You can btw check my (french) blog were I will explain how I solved the challeng
 		</tr>
 		<tr>
 			<td align="center">ARMv5</td>
-			<td align="center">:x:</td>
+			<td align="center">:white_check_mark:</td>
 		</tr>
 		<tr>
 			<td align="center">MIPS</td>
