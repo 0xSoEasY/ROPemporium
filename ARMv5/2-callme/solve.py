@@ -26,5 +26,5 @@ for func in [callme_one, callme_two, callme_three]:
     p.sendline(rop)
     log.success(f"ROPchain = {rop}")
 
-flag = p.recvall(timeout=1).split(b'\n')[-2]
+flag = p.recvall().split(b'\n')[-2]
 log.success(f"FLAG : {flag}")

